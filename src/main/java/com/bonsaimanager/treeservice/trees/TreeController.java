@@ -18,7 +18,7 @@ import java.util.NoSuchElementException;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/tree")
-@CrossOrigin(origins = {"http://localhost:3000", "https://gp-wsb.gitlab.io"})
+@CrossOrigin(origins = {"http://localhost:3000", "https://bonsai-manager-tree-service.herokuapp.com"})
 class TreeController {
 
     private final TreeFacade treeFacade;

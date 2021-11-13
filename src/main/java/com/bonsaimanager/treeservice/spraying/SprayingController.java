@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/spraying")
-@CrossOrigin(origins = {"http://localhost:3000", "https://gp-wsb.gitlab.io"})
+@CrossOrigin(origins = {"http://localhost:3000", "https://bonsai-manager-tree-service.herokuapp.com"})
 class SprayingController {
 
     private final SprayingFacade sprayingFacade;
