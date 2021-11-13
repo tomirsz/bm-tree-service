@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/irrigation")
-@CrossOrigin("*")
+@CrossOrigin(origins = {"http://localhost:3000", "https://gp-wsb.gitlab.io"})
 public class IrrigationController {
 
     private final IrrigationFacade irrigationFacade;

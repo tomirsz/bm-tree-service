@@ -16,7 +16,7 @@ import java.util.NoSuchElementException;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/repotting")
-@CrossOrigin("*")
+@CrossOrigin(origins = {"http://localhost:3000", "https://gp-wsb.gitlab.io"})
 public class RepottingController {
 
     private final RepottingFacade repottingFacade;

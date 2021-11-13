@@ -18,7 +18,7 @@ import java.util.NoSuchElementException;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/tree")
-@CrossOrigin("*")
+@CrossOrigin(origins = {"http://localhost:3000", "https://gp-wsb.gitlab.io"})
 class TreeController {
 
     private final TreeFacade treeFacade;
