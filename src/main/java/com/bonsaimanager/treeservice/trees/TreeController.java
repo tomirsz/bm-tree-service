@@ -18,6 +18,7 @@ import java.util.NoSuchElementException;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/tree")
+@CrossOrigin("*")
 class TreeController {
 
     private final TreeFacade treeFacade;

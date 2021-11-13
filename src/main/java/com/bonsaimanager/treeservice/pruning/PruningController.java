@@ -13,6 +13,7 @@ import java.util.NoSuchElementException;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/pruning")
+@CrossOrigin("*")
 public class PruningController {
 
     private final PruningFacade pruningFacade;

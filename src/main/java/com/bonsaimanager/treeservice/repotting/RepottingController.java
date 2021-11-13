@@ -16,6 +16,7 @@ import java.util.NoSuchElementException;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/repotting")
+@CrossOrigin("*")
 public class RepottingController {
 
     private final RepottingFacade repottingFacade;

@@ -13,6 +13,7 @@ import java.util.NoSuchElementException;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/spraying")
+@CrossOrigin("*")
 class SprayingController {
 
     private final SprayingFacade sprayingFacade;
