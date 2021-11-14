@@ -9,3 +9,5 @@ spring:
   profiles:
     active: ${PROFILE}
 
+keycloak:
+  cors: true

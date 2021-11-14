@@ -52,6 +52,6 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
                 .authenticated()
                 .and()
                 .csrf().disable();
-        http.cors().disable();
+        http.cors();
     }
 }
