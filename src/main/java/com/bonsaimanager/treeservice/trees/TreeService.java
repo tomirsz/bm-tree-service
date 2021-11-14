@@ -6,6 +6,7 @@ import com.bonsaimanager.treeservice.model.dto.PdfRequest;
 import com.bonsaimanager.treeservice.model.entity.Tree;
 import com.bonsaimanager.treeservice.security.SecurityUtils;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 class TreeService {
 
     private final TreeRepository treeRepository;
@@ -34,6 +36,7 @@ class TreeService {
     public void delete(long id) throws NoSuchElementException {
         Optional<Tree> tree = treeRepository.findById(id);
         if (tree.isPresent()) {
+            log.info("UserId: " + SecurityUtils.getUserId());
             treeRepository.deleteById(tree.get().getId(), SecurityUtils.getUserId());
         } else {
             throw new NoSuchElementException();
