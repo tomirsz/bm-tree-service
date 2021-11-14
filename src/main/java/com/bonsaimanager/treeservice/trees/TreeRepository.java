@@ -22,9 +22,8 @@ interface TreeRepository extends JpaRepository<Tree, Long> {
     @Query("FROM Tree t where t.userId = :userId")
     List<Tree> findAllByUserId(@Param("userId") String userId);
 
-    @Query(value = "DELETE FROM trees t where t.id = :treeId and t.user_id = :userId",
-            nativeQuery = true)
-    void deleteById(@Param("treeId") long treeId,
+    @Query("FROM Tree t where t.id = :treeId and t.userId = :userId")
+    boolean deleteById(@Param("treeId") long treeId,
                     @Param("userId") String userId);
 
     @Query("SELECT new com.bonsaimanager.treeservice.model.dto.PdfRequest(t.id, t.latinName, t.name) " +
