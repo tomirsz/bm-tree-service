@@ -37,7 +37,7 @@ class TreeService {
         Optional<Tree> tree = treeRepository.findById(id);
         if (tree.isPresent()) {
             log.info("UserId: " + SecurityUtils.getUserId());
-            treeRepository.deleteById(tree.get().getId());
+            treeRepository.deleteByIdAndUserId(tree.get().getId(), SecurityUtils.getUserId());
         } else {
             throw new NoSuchElementException();
         }
