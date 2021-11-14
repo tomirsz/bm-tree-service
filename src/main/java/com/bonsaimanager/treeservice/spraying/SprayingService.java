@@ -42,7 +42,7 @@ class SprayingService {
     public void delete(long id) throws NoSuchElementException {
         Optional<Spraying> spraying = sprayingRepository.findById(id);
         if (spraying.isPresent()) {
-            sprayingRepository.deleteById(spraying.get().getId(), SecurityUtils.getUserId());
+            sprayingRepository.deleteByIdAndUserId(spraying.get().getId(), SecurityUtils.getUserId());
         } else {
             throw new NoSuchElementException();
         }

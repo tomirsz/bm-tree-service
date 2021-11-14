@@ -42,7 +42,7 @@ public class IrrigationService {
     public void delete(long id) throws NoSuchElementException {
         Optional<Irrigation> irrigation = irrigationRepository.findById(id);
         if (irrigation.isPresent()) {
-            irrigationRepository.deleteById(irrigation.get().getId(), SecurityUtils.getUserId());
+            irrigationRepository.deleteByIdAndUserId(irrigation.get().getId(), SecurityUtils.getUserId());
         } else {
             throw new NoSuchElementException();
         }

@@ -1,7 +1,6 @@
 package com.bonsaimanager.treeservice.pruning;
 
 import com.bonsaimanager.treeservice.model.entity.Prune;
-import com.bonsaimanager.treeservice.model.entity.Spraying;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -22,7 +21,6 @@ public interface PruningRepository extends JpaRepository<Prune, Long> {
     @Query("FROM Prune p where p.userId = :userId")
     List<Prune> findAllByUserId(@Param("userId") String userId);
 
-    @Query("FROM Prune p where p.id = :pruningId and p.userId = :userId")
-    void deleteById(@Param("pruningId") long pruningId,
-                    @Param("userId") String userId);
+    void deleteByIdAndUserId(@Param("pruningId") long pruningId,
+                             @Param("userId") String userId);
 }

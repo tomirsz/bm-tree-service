@@ -1,7 +1,6 @@
 package com.bonsaimanager.treeservice.fertilization;
 
 import com.bonsaimanager.treeservice.model.entity.Fertilization;
-import com.bonsaimanager.treeservice.model.entity.Spraying;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -22,7 +21,6 @@ public interface FertilizationRepository extends JpaRepository<Fertilization, Lo
     @Query("FROM Fertilization f where f.userId = :userId")
     List<Fertilization> findAllByUserId(@Param("userId") String userId);
 
-    @Query("FROM Fertilization f where f.id = :fertilizationId and f.userId = :userId")
-    void deleteById(@Param("fertilizationId") long fertilizationId,
-                    @Param("userId") String userId);
+    void deleteByIdAndUserId(@Param("fertilizationId") long fertilizationId,
+                             @Param("userId") String userId);
 }

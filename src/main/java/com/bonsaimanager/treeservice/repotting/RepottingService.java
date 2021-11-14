@@ -42,7 +42,7 @@ public class RepottingService {
     public void delete(long id) throws NoSuchElementException {
         Optional<Repot> repot = repottingRepository.findById(id);
         if (repot.isPresent()) {
-            repottingRepository.deleteById(repot.get().getId(), SecurityUtils.getUserId());
+            repottingRepository.deleteByIdAndUserId(repot.get().getId(), SecurityUtils.getUserId());
         } else {
             throw new NoSuchElementException();
         }

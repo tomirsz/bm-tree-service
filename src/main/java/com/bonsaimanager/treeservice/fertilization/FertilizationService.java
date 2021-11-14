@@ -5,8 +5,10 @@ import com.bonsaimanager.treeservice.model.dto.NewFertilizationDto;
 import com.bonsaimanager.treeservice.model.entity.Fertilization;
 import com.bonsaimanager.treeservice.model.entity.Spraying;
 import com.bonsaimanager.treeservice.model.entity.Tree;
+import com.bonsaimanager.treeservice.security.SecurityUtils;
 import com.bonsaimanager.treeservice.trees.TreeFacade;
 import lombok.AllArgsConstructor;
+import org.apache.catalina.security.SecurityUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,7 +43,7 @@ public class FertilizationService {
     public void delete(long id) throws NoSuchElementException {
         Optional<Fertilization> fertilization = fertilizationRepository.findById(id);
         if (fertilization.isPresent()) {
-            fertilizationRepository.delete(fertilization.get());
+            fertilizationRepository.deleteByIdAndUserId(fertilization.get().getId(), SecurityUtils.getUserId());
         } else {
             throw new NoSuchElementException();
         }

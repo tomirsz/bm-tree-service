@@ -1,7 +1,6 @@
 package com.bonsaimanager.treeservice.repotting;
 
 import com.bonsaimanager.treeservice.model.entity.Repot;
-import com.bonsaimanager.treeservice.model.entity.Spraying;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -22,7 +21,6 @@ public interface RepottingRepository extends JpaRepository<Repot, Long> {
     @Query("FROM Repot r where r.userId = :userId")
     List<Repot> findAllByUserId(@Param("userId") String userId);
 
-    @Query("FROM Repot r where r.id = :repotId and r.userId = :userId")
-    void deleteById(@Param("repotId") long repotId,
-                    @Param("userId") String userId);
+    void deleteByIdAndUserId(@Param("repotId") long repotId,
+                             @Param("userId") String userId);
 }

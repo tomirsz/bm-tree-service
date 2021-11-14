@@ -44,7 +44,7 @@ public class PruningService {
     public void delete(long id) throws NoSuchElementException {
         Optional<Prune> pruning = pruningRepository.findById(id);
         if (pruning.isPresent()) {
-            pruningRepository.deleteById(pruning.get().getId(), SecurityUtils.getUserId());
+            pruningRepository.deleteByIdAndUserId(pruning.get().getId(), SecurityUtils.getUserId());
         } else {
             throw new NoSuchElementException();
         }
